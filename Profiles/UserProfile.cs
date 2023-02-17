@@ -8,6 +8,7 @@ namespace UserManagement.Profiles
     {
         public UserProfile() { 
             CreateMap<CreateUserDto, User>().ReverseMap();
+            CreateMap<UserResponseDto, User>().ReverseMap();
         }
     }
 }

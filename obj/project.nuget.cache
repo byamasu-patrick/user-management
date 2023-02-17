@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "J5hnDVkxUyuzTsk2pIgq2p5C3F6D5DRQlLO7/6ij7RNQ7IVniwBz2EZvrkI78C0CsSFZg4/dZLMOgB9bfzg1aA==",
+  "dgSpecHash": "IEUhHhbvMSk3WHscqubyodkkS7NTfe4RKCqDZC4hoESjNITovOn8Jhhg/IN+XfsW3Trk1dr43tV0rwKXKek3zg==",
   "success": true,
   "projectFilePath": "C:\\Users\\hp\\Documents\\Cloud Stores Malawi\\UserManagement\\UserManagement\\UserManagement.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.3\\microsoft.entityframeworkcore.analyzers.7.0.3.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.3\\microsoft.entityframeworkcore.design.7.0.3.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.3\\microsoft.entityframeworkcore.relational.7.0.3.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.3\\microsoft.entityframeworkcore.tools.7.0.3.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",

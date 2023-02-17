@@ -25,8 +25,8 @@ namespace UserManagement.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
         [HttpPost]
-        [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<User>> CreateUser([FromBody] CreateUserDto userDto)
+        [ProducesResponseType(typeof(UserResponseDto), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<UserResponseDto>> CreateUser([FromBody] CreateUserDto userDto)
         {
             var user = _mapper.Map<User>(userDto);
 
@@ -36,25 +36,30 @@ namespace UserManagement.Controllers
             user.UpdatedAt = DateTime.UtcNow;
             user.PasswordHash = passwordHash;
             user.Salt = passwordSalt;
+            user.RefreshToken = "";
 
             var userData = await _repository.CreateUser(user);
 
-            return CreatedAtRoute("GetUser", new { email = user.Email }, userData);
-        }
-        [HttpGet("{email:length(100)}", Name = "GetUser")]
-        [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<User>> GetUser(string email)
-        {
-            var product = await _repository.GetUser(email);
+            var userResponse = _mapper.Map<UserResponseDto>(userData);
 
-            if (product == null)
+            return userResponse;
+        }
+        [HttpGet("{email}", Name = "GetUser")]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(UserResponseDto), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<UserResponseDto>> GetUser(string email)
+        {
+            var user = await _repository.GetUser(email);
+
+            if (user == null)
             {
                 _logger.LogError($"User with email: {email}, not found.");
                 return NotFound();
             }
 
-            return Ok(product);
+            var userResponse = _mapper.Map<UserResponseDto>(user);
+
+            return Ok(userResponse);
         }
         [HttpPut]
         [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
@@ -84,7 +89,7 @@ namespace UserManagement.Controllers
 
         }
 
-        [HttpDelete("{email:length(100)}", Name = "DeleteUser")]
+        [HttpDelete("{email}", Name = "DeleteUser")]
         [ProducesResponseType(typeof(User), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> DeleteUser(string email)
         {

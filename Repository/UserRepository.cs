@@ -22,7 +22,7 @@ namespace UserManagement.Repository
 
         public async Task<bool> DeleteUser(string id)
         {
-            var result = await _context.User.FindAsync(id);
+            var result = await _context.User.Where(user => user.Email == id).FirstOrDefaultAsync();
 
             _context.User.Remove(result); 
             
@@ -33,7 +33,7 @@ namespace UserManagement.Repository
 
         public async Task<User> GetUser(string id)
         {
-            return await _context.User.Where(user => user.Email == id).FirstAsync();
+            return await _context.User.Where(user => user.Email == id).FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<User>> GetUsers()
