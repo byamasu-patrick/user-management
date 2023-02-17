@@ -2,12 +2,12 @@
 {
     public class User
     {
-        public string FirstName { get; set; } = string.Empty.ToString();
-        public string LastName { get; set; } = string.Empty.ToString(); 
-        public string Email { get; set; } = string.Empty.ToString();
-        public string PasswordHash { get; set; } = string.Empty.ToString();
-        public string Salt { get; set;  } = string.Empty.ToString();
-        public string RefreshToken { get; set;} = string.Empty.ToString();
+        public string FirstName { get; set; } 
+        public string LastName { get; set; } 
+        public string Email { get; set; }
+        public byte[] PasswordHash { get; set; } 
+        public byte[] Salt { get; set;  }
+        public string RefreshToken { get; set;} 
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set;} = DateTime.Now;
 
